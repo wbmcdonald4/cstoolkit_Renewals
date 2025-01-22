@@ -1,0 +1,32 @@
+{
+  "packageDirectories": [
+    {
+      "path": "force-app-chapter-1",
+      "default": false,
+      "package": "RenewalsChapter1",
+      "versionName": "ver 0.2",
+      "versionNumber": "0.2.0.NEXT",
+      "versionDescription": "Renewals Package for Chapter 1 of Notion eBook"
+    },
+    {
+      "path": "force-app-chapter-2",
+      "package": "RenewalsChapter2",
+      "versionName": "ver 0.1",
+      "versionNumber": "0.1.0.NEXT",
+      "default": true,
+      "versionDescription": "Renewals Package for Chapter 2 of Notion eBook"
+    }
+  ],
+  "name": "cstoolkit_Renewals",
+  "namespace": "",
+  "sfdcLoginUrl": "https://login.salesforce.com",
+  "sourceApiVersion": "59.0",
+  "packageAliases": {
+    "RenewalsChapter1": "0HoN300000000RRKAY",
+    "RenewalsChapter1@0.1.0-1": "04tN30000092XsLIAU",
+    "RenewalsChapter1@0.1.0-2": "04tN30000092Z9NIAU",
+    "RenewalsChapter1@0.1.0-3": "04tN30000092dJRIAY",
+    "RenewalsChapter1@0.2.0-1": "04tN30000092e7RIAQ",
+    "RenewalsChapter2": "0HoN300000000T3KAI"
+  }
+}
