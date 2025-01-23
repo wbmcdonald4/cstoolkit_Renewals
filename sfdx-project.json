@@ -11,10 +11,15 @@
     {
       "path": "force-app-chapter-2",
       "package": "RenewalsChapter2",
-      "versionName": "ver 0.1",
-      "versionNumber": "0.1.0.NEXT",
+      "versionName": "ver 0.2",
+      "versionNumber": "0.2.0.NEXT",
       "default": true,
-      "versionDescription": "Renewals Package for Chapter 2 of Notion eBook"
+      "versionDescription": "Renewals Package for Chapter 2 of Notion eBook",
+      "dependencies": [
+        {
+          "subscriberPackageVersionId": "04tN30000092e7RIAQ"
+        }
+      ]
     }
   ],
   "name": "cstoolkit_Renewals",
@@ -27,6 +32,8 @@
     "RenewalsChapter1@0.1.0-2": "04tN30000092Z9NIAU",
     "RenewalsChapter1@0.1.0-3": "04tN30000092dJRIAY",
     "RenewalsChapter1@0.2.0-1": "04tN30000092e7RIAQ",
-    "RenewalsChapter2": "0HoN300000000T3KAI"
+    "RenewalsChapter2": "0HoN300000000T3KAI",
+    "RenewalsChapter2@0.1.0-1": "04tN30000093VWjIAM",
+    "RenewalsChapter2@0.2.0-1": "04tN30000093nrpIAA"
   }
 }
