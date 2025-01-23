@@ -7,7 +7,7 @@
         <chartSummaries>
             <aggregate>Sum</aggregate>
             <axisBinding>y</axisBinding>
-            <column>Opportunity.Revenue_Movement_ARR__c</column>
+            <column>Opportunity.Revenue_Movement_ARR_C3__c</column>
         </chartSummaries>
         <chartType>VerticalColumnStacked</chartType>
         <enableHoverLabels>false</enableHoverLabels>
@@ -15,7 +15,7 @@
         <groupingColumn>Opportunity.Contract_Start_Date__c</groupingColumn>
         <legendPosition>Right</legendPosition>
         <location>CHART_BOTTOM</location>
-        <secondaryGroupingColumn>Opportunity.Revenue_Movement_Type__c</secondaryGroupingColumn>
+        <secondaryGroupingColumn>Opportunity.Revenue_Movement_Type_C3__c</secondaryGroupingColumn>
         <showAxisLabels>false</showAxisLabels>
         <showPercentage>false</showPercentage>
         <showTotal>false</showTotal>
@@ -35,7 +35,7 @@
     </columns>
     <columns>
         <aggregateTypes>Sum</aggregateTypes>
-        <field>Opportunity.Revenue_Movement_ARR__c</field>
+        <field>Opportunity.Revenue_Movement_ARR_C3__c</field>
     </columns>
     <filter>
         <criteriaItems>
@@ -54,10 +54,10 @@
     </groupingsDown>
     <groupingsDown>
         <dateGranularity>Day</dateGranularity>
-        <field>Opportunity.Revenue_Movement_Type__c</field>
+        <field>Opportunity.Revenue_Movement_Type_C3__c</field>
         <sortOrder>Asc</sortOrder>
     </groupingsDown>
-    <name>Contracted ARR Changes</name>
+    <name>Contracted ARR Changes (C3)</name>
     <params>
         <name>open</name>
         <value>closed</value>
