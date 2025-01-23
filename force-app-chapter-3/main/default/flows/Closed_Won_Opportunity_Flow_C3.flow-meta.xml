@@ -1,7 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Flow xmlns="http://soap.sforce.com/2006/04/metadata">
     <apiVersion>62.0</apiVersion>
+    <decisions>
+        <name>Is_Upsell_Opportunity</name>
+        <label>Is Upsell Opportunity</label>
+        <locationX>182</locationX>
+        <locationY>323</locationY>
+        <defaultConnector>
+            <targetReference>createRenewalOpportunity</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Upsell_Opportunity</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.RecordType.Name</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Upsell</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>getBaseOpp</targetReference>
+            </connector>
+            <label>Upsell Opportunity</label>
+        </rules>
+    </decisions>
     <environments>Default</environments>
+    <formulas>
+        <name>newTotalAmendmentARR</name>
+        <dataType>Currency</dataType>
+        <expression>BLANKVALUE({!getBaseOpp.Total_Amendment_ARR__c}, 0) + {!$Record.ARR__c}</expression>
+        <scale>2</scale>
+    </formulas>
     <formulas>
         <name>OneDayAfterContractEndDate</name>
         <dataType>Date</dataType>
@@ -12,8 +43,8 @@
         <dataType>String</dataType>
         <expression>{!$Record.Account.Name} + &apos; - Renewal&apos;</expression>
     </formulas>
-    <interviewLabel>Closed Won Opportunity Flow {!$Flow.CurrentDateTime}</interviewLabel>
-    <label>Closed Won Opportunity Flow</label>
+    <interviewLabel>Closed Won Opportunity Flow (C3) {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Closed Won Opportunity Flow (C3)</label>
     <processMetadataValues>
         <name>BuilderType</name>
         <value>
@@ -36,8 +67,8 @@
     <recordCreates>
         <name>createRenewalOpportunity</name>
         <label>createRenewalOpportunity</label>
-        <locationX>176</locationX>
-        <locationY>323</locationY>
+        <locationX>314</locationX>
+        <locationY>431</locationY>
         <connector>
             <targetReference>updateOriginalOpportunity</targetReference>
         </connector>
@@ -98,11 +129,53 @@
         <object>Opportunity</object>
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordCreates>
+    <recordLookups>
+        <name>getBaseOpp</name>
+        <label>getBaseOpp</label>
+        <locationX>50</locationX>
+        <locationY>431</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Update_Original_Opportunity_Amendment_ARR</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Amendment_Of__c</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Opportunity</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordUpdates>
+        <name>Update_Original_Opportunity_Amendment_ARR</name>
+        <label>Update Original Opportunity Amendment ARR</label>
+        <locationX>50</locationX>
+        <locationY>539</locationY>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Amendment_Of__c</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Total_Amendment_ARR__c</field>
+            <value>
+                <elementReference>newTotalAmendmentARR</elementReference>
+            </value>
+        </inputAssignments>
+        <object>Opportunity</object>
+    </recordUpdates>
     <recordUpdates>
         <name>updateOriginalOpportunity</name>
         <label>updateOriginalOpportunity</label>
-        <locationX>176</locationX>
-        <locationY>431</locationY>
+        <locationX>314</locationX>
+        <locationY>539</locationY>
         <inputAssignments>
             <field>Renewed_By__c</field>
             <value>
@@ -112,10 +185,10 @@
         <inputReference>$Record</inputReference>
     </recordUpdates>
     <start>
-        <locationX>50</locationX>
+        <locationX>56</locationX>
         <locationY>0</locationY>
         <connector>
-            <targetReference>createRenewalOpportunity</targetReference>
+            <targetReference>Is_Upsell_Opportunity</targetReference>
         </connector>
         <doesRequireRecordChangedToMeetCriteria>true</doesRequireRecordChangedToMeetCriteria>
         <filterLogic>and</filterLogic>
