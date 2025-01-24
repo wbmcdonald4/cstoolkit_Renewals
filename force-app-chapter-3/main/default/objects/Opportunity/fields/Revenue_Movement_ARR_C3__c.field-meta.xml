@@ -28,6 +28,7 @@
   )
 )</formula>
     <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>Displays the difference in ARR between the current opportunity and the previous one.</inlineHelpText>
     <label>Revenue Movement ARR (C3)</label>
     <precision>18</precision>
     <required>false</required>

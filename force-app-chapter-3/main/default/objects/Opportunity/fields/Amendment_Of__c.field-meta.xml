@@ -3,6 +3,7 @@
     <fullName>Amendment_Of__c</fullName>
     <deleteConstraint>SetNull</deleteConstraint>
     <externalId>false</externalId>
+    <inlineHelpText>References the original opportunity that this amendment modifies.</inlineHelpText>
     <label>Amendment Of</label>
     <referenceTo>Opportunity</referenceTo>
     <relationshipLabel>Amended By</relationshipLabel>

@@ -16,6 +16,7 @@
   )
 )</formula>
     <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>Indicates the current status of the contract.</inlineHelpText>
     <label>Contract Status</label>
     <required>false</required>
     <trackTrending>false</trackTrending>
