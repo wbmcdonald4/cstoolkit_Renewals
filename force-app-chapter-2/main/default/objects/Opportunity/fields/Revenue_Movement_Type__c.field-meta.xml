@@ -24,6 +24,7 @@
   )
 )</formula>
     <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>Categorizes the renewal as an Upsell, Downsell, Flat Renewal, or Churn based on the comparison between the current and previous ARR.</inlineHelpText>
     <label>Revenue Movement Type</label>
     <required>false</required>
     <trackTrending>false</trackTrending>

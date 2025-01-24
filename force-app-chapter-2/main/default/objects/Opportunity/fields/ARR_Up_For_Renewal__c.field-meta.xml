@@ -8,6 +8,7 @@
   NULL
 )</formula>
     <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>Captures the ARR from the previous opportunity, enabling comparisons to determine whether the renewal results in upsell, downsell, or flat revenue movement.</inlineHelpText>
     <label>ARR Up For Renewal</label>
     <precision>18</precision>
     <required>false</required>
