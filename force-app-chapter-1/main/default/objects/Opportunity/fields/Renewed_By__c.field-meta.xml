@@ -3,6 +3,7 @@
     <fullName>Renewed_By__c</fullName>
     <deleteConstraint>SetNull</deleteConstraint>
     <externalId>false</externalId>
+    <inlineHelpText>Indicates the next opportunity that will renew this one, creating a clear chain of renewal relationships.</inlineHelpText>
     <label>Renewed By</label>
     <referenceTo>Opportunity</referenceTo>
     <relationshipLabel>Renewal Of</relationshipLabel>

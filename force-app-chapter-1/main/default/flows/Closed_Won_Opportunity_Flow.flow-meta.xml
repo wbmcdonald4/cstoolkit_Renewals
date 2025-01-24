@@ -37,7 +37,7 @@
         <name>createRenewalOpportunity</name>
         <label>createRenewalOpportunity</label>
         <locationX>176</locationX>
-        <locationY>323</locationY>
+        <locationY>431</locationY>
         <connector>
             <targetReference>updateOriginalOpportunity</targetReference>
         </connector>
@@ -80,7 +80,7 @@
         <inputAssignments>
             <field>RecordTypeId</field>
             <value>
-                <stringValue>012As000002xBvxIAE</stringValue>
+                <elementReference>getRecordTypeId.Id</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
@@ -98,11 +98,39 @@
         <object>Opportunity</object>
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordCreates>
+    <recordLookups>
+        <name>getRecordTypeId</name>
+        <label>Get Record Type Id</label>
+        <locationX>176</locationX>
+        <locationY>323</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>createRenewalOpportunity</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>SobjectType</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Opportunity</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Name</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Renewal</stringValue>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>RecordType</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
     <recordUpdates>
         <name>updateOriginalOpportunity</name>
         <label>updateOriginalOpportunity</label>
         <locationX>176</locationX>
-        <locationY>431</locationY>
+        <locationY>539</locationY>
         <inputAssignments>
             <field>Renewed_By__c</field>
             <value>
@@ -115,7 +143,7 @@
         <locationX>50</locationX>
         <locationY>0</locationY>
         <connector>
-            <targetReference>createRenewalOpportunity</targetReference>
+            <targetReference>getRecordTypeId</targetReference>
         </connector>
         <doesRequireRecordChangedToMeetCriteria>true</doesRequireRecordChangedToMeetCriteria>
         <filterLogic>and</filterLogic>
@@ -130,5 +158,5 @@
         <recordTriggerType>Update</recordTriggerType>
         <triggerType>RecordAfterSave</triggerType>
     </start>
-    <status>Obsolete</status>
+    <status>Draft</status>
 </Flow>

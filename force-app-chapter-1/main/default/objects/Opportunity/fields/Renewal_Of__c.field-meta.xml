@@ -3,9 +3,10 @@
     <fullName>Renewal_Of__c</fullName>
     <deleteConstraint>SetNull</deleteConstraint>
     <externalId>false</externalId>
+    <inlineHelpText>Links this opportunity to the previous opportunity it is renewing.</inlineHelpText>
     <label>Renewal Of</label>
     <referenceTo>Opportunity</referenceTo>
-    <relationshipLabel>Opportunities</relationshipLabel>
+    <relationshipLabel>Renewed By</relationshipLabel>
     <relationshipName>Renewed_By</relationshipName>
     <required>false</required>
     <trackFeedHistory>false</trackFeedHistory>

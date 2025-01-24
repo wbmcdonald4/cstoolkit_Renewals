@@ -4,6 +4,7 @@
     <externalId>false</externalId>
     <formula>Amount / Contract_Term__c</formula>
     <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>Represents the monthly value of the contract.</inlineHelpText>
     <label>MRR</label>
     <precision>18</precision>
     <required>false</required>
