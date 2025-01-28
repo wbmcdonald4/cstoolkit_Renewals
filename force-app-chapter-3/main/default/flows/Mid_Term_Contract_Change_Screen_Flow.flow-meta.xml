@@ -167,8 +167,43 @@ TODAY() &gt; {!getBaseOpportunityById.Contract_End_Date__c},
         <name>churnBaseOpportunityTerm</name>
         <dataType>Number</dataType>
         <expression>{!getBaseOpportunityById.Contract_Term__c} - (
-  (YEAR({!getBaseOpportunityById.Contract_End_Date__c}) - YEAR({!churnEffectiveDate})) * 12 + 
-  (MONTH({!getBaseOpportunityById.Contract_End_Date__c}) - MONTH({!churnEffectiveDate}))
+(YEAR({!getBaseOpportunityById.Contract_End_Date__c}) 
+ - YEAR({!churnEffectiveDate})) 
+* 12
++ (
+    MONTH({!getBaseOpportunityById.Contract_End_Date__c}) 
+    - MONTH({!churnEffectiveDate})
+  )
++ IF(
+    AND(
+      DAY({!getBaseOpportunityById.Contract_End_Date__c})
+      =
+      IF(
+        MONTH({!getBaseOpportunityById.Contract_End_Date__c}) = 12,
+        DAY(
+          DATE(
+            YEAR({!getBaseOpportunityById.Contract_End_Date__c}) + 1,
+            1,
+            1
+          )
+          - 1
+        ),
+        DAY(
+          DATE(
+            YEAR({!getBaseOpportunityById.Contract_End_Date__c}),
+            MONTH({!getBaseOpportunityById.Contract_End_Date__c}) + 1,
+            1
+          )
+          - 1
+        )
+      ),
+
+      DAY({!churnEffectiveDate}) = 1
+    ),
+    1,
+    0
+  )
+
 )</expression>
         <scale>0</scale>
     </formulas>
@@ -235,8 +270,42 @@ TODAY() &gt; {!getBaseOpportunityById.Contract_End_Date__c},
     <formulas>
         <name>downsellTermLength</name>
         <dataType>Number</dataType>
-        <expression>(YEAR({!getBaseOpportunityById.Contract_End_Date__c}) - YEAR({!downsellEffectiveDate})) * 12 + 
-(MONTH({!getBaseOpportunityById.Contract_End_Date__c}) - MONTH({!downsellEffectiveDate}))</expression>
+        <expression>(YEAR({!getBaseOpportunityById.Contract_End_Date__c}) 
+ - YEAR({!downsellEffectiveDate})) 
+* 12
++ (
+    MONTH({!getBaseOpportunityById.Contract_End_Date__c}) 
+    - MONTH({!downsellEffectiveDate})
+  )
++ IF(
+    AND(
+      DAY({!getBaseOpportunityById.Contract_End_Date__c})
+      =
+      IF(
+        MONTH({!getBaseOpportunityById.Contract_End_Date__c}) = 12,
+        DAY(
+          DATE(
+            YEAR({!getBaseOpportunityById.Contract_End_Date__c}) + 1,
+            1,
+            1
+          )
+          - 1
+        ),
+        DAY(
+          DATE(
+            YEAR({!getBaseOpportunityById.Contract_End_Date__c}),
+            MONTH({!getBaseOpportunityById.Contract_End_Date__c}) + 1,
+            1
+          )
+          - 1
+        )
+      ),
+
+      DAY({!downsellEffectiveDate}) = 1
+    ),
+    1,
+    0
+  )</expression>
         <scale>0</scale>
     </formulas>
     <formulas>
@@ -272,8 +341,42 @@ TODAY() &gt; {!getBaseOpportunityById.Contract_End_Date__c},
     <formulas>
         <name>upsellTermLength</name>
         <dataType>Number</dataType>
-        <expression>(YEAR({!getBaseOpportunityById.Contract_End_Date__c}) - YEAR({!upsellEffectiveDate})) * 12 + 
-(MONTH({!getBaseOpportunityById.Contract_End_Date__c}) - MONTH({!upsellEffectiveDate}))</expression>
+        <expression>(YEAR({!getBaseOpportunityById.Contract_End_Date__c}) 
+ - YEAR({!upsellEffectiveDate})) 
+* 12
++ (
+    MONTH({!getBaseOpportunityById.Contract_End_Date__c}) 
+    - MONTH({!upsellEffectiveDate})
+  )
++ IF(
+    AND(
+      DAY({!getBaseOpportunityById.Contract_End_Date__c})
+      =
+      IF(
+        MONTH({!getBaseOpportunityById.Contract_End_Date__c}) = 12,
+        DAY(
+          DATE(
+            YEAR({!getBaseOpportunityById.Contract_End_Date__c}) + 1,
+            1,
+            1
+          )
+          - 1
+        ),
+        DAY(
+          DATE(
+            YEAR({!getBaseOpportunityById.Contract_End_Date__c}),
+            MONTH({!getBaseOpportunityById.Contract_End_Date__c}) + 1,
+            1
+          )
+          - 1
+        )
+      ),
+
+      DAY({!upsellEffectiveDate}) = 1
+    ),
+    1,
+    0
+  )</expression>
         <scale>0</scale>
     </formulas>
     <interviewLabel>Mid Term Contract Change Screen Flow {!$Flow.CurrentDateTime}</interviewLabel>

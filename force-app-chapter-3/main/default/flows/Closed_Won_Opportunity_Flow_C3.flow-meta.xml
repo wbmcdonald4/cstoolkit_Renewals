@@ -28,6 +28,12 @@
     </decisions>
     <environments>Default</environments>
     <formulas>
+        <name>newRenewalAmount</name>
+        <dataType>Currency</dataType>
+        <expression>{!getBaseOpp.ARR__c} + {!newTotalAmendmentARR}</expression>
+        <scale>2</scale>
+    </formulas>
+    <formulas>
         <name>newTotalAmendmentARR</name>
         <dataType>Currency</dataType>
         <expression>BLANKVALUE({!getBaseOpp.Total_Amendment_ARR__c}, 0) + {!$Record.ARR__c}</expression>
@@ -183,6 +189,9 @@
         <label>Update Original Opportunity Amendment ARR</label>
         <locationX>50</locationX>
         <locationY>539</locationY>
+        <connector>
+            <targetReference>Update_Renewal_Opp</targetReference>
+        </connector>
         <filterLogic>and</filterLogic>
         <filters>
             <field>Id</field>
@@ -195,6 +204,27 @@
             <field>Total_Amendment_ARR__c</field>
             <value>
                 <elementReference>newTotalAmendmentARR</elementReference>
+            </value>
+        </inputAssignments>
+        <object>Opportunity</object>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Update_Renewal_Opp</name>
+        <label>Update Renewal Opp</label>
+        <locationX>50</locationX>
+        <locationY>647</locationY>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>getBaseOpp.Renewed_By__c</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Amount</field>
+            <value>
+                <elementReference>newRenewalAmount</elementReference>
             </value>
         </inputAssignments>
         <object>Opportunity</object>
