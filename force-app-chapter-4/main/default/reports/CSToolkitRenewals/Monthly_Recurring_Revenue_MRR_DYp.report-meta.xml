@@ -51,7 +51,7 @@
         <field>Monthly_Revenue_Event__c.Type__c</field>
         <sortOrder>Asc</sortOrder>
     </groupingsDown>
-    <name>Monthly Recurring Revenue (MRR)</name>
+    <name>Monthly Recurring Revenue (MRR) (C4)</name>
     <params>
         <name>open</name>
         <value>all</value>

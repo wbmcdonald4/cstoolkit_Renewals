@@ -71,12 +71,10 @@ public class MonthlyRevenueEventService {
           ];
           if (parentOpp != null) {
               Decimal parentMRR = parentOpp.MRR__c;
-              Id rootOppId = getRootOppId(opp);
               // 1) Negative "CHURN" record
               insert new Monthly_Revenue_Event__c(
                 Account__c           = opp.AccountId,
                 Opportunity__c       = opp.Id,
-                Root_Opportunity__c  = rootOppId,
                 Month__c             = opp.Contract_Start_Date__c,
                 Type__c              = 'CHURN',
                 Amount__c            = -parentMRR
@@ -86,7 +84,6 @@ public class MonthlyRevenueEventService {
               insert new Monthly_Revenue_Event__c(
                   Account__c           = opp.AccountId,
                   Opportunity__c       = opp.Id,
-                  Root_Opportunity__c  = rootOppId,
                   Month__c             = opp.Contract_Start_Date__c,
                   Type__c              = 'MRR',
                   Amount__c            = parentMRR
@@ -146,60 +143,10 @@ public class MonthlyRevenueEventService {
       }
   }
 
-  private static Id getRootOppId(Opportunity opp) {
-    // Edge case: null input
-    if (opp == null) {
-        return null;
-    }
-
-    // 1) If it's an Upsell with Amendment_Of__c, let's jump to that parent.
-    //    (If you have multiple levels of amendments, you may need a loop or recursion here, too.)
-    Opportunity effectiveOpp = opp;
-    if (opp.RecordType.Name == 'Upsell' && opp.Amendment_Of__c != null) {
-        Opportunity parentAmendOpp = [
-            SELECT Id, Renewal_Of__c, Amendment_Of__c
-            FROM Opportunity
-            WHERE Id = :opp.Amendment_Of__c
-            LIMIT 1
-        ];
-        // Now let's treat *that* parent as our starting point
-        if (parentAmendOpp != null) {
-            effectiveOpp = parentAmendOpp;
-        }
-    }
-
-    // 2) Now climb the Renewal_Of__c chain from the "effectiveOpp"
-    Id currentId = effectiveOpp.Id;
-    Id parentId = effectiveOpp.Renewal_Of__c;
-
-    while (parentId != null) {
-        Opportunity parentOpp = [
-            SELECT Id, Renewal_Of__c
-            FROM Opportunity
-            WHERE Id = :parentId
-            LIMIT 1
-        ];
-
-        if (parentOpp == null) {
-            // Should not happen if the data is valid, but just in case
-            break;
-        }
-        // Move up one level
-        currentId = parentOpp.Id;
-        parentId = parentOpp.Renewal_Of__c;
-    }
-
-    // currentId now points to the top-most Opp in the chain
-    return currentId;
-  }
-
   private static Monthly_Revenue_Event__c createMRE(Opportunity opp, Date month, String type, Decimal amount) {
-      // Figure out the root Opp each time
-      Id rootOppId = getRootOppId(opp);
       return new Monthly_Revenue_Event__c(
           Account__c = opp.AccountId,
           Opportunity__c = opp.Id,
-          Root_Opportunity__c = rootOppId,
           Month__c = month,
           Type__c = type,
           Amount__c = amount

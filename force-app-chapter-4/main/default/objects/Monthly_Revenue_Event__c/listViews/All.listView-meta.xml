@@ -4,6 +4,7 @@
     <columns>NAME</columns>
     <columns>Account__c</columns>
     <columns>Opportunity__c</columns>
+    <columns>Root_Opportunity__c</columns>
     <columns>Month__c</columns>
     <columns>Type__c</columns>
     <columns>Amount__c</columns>
