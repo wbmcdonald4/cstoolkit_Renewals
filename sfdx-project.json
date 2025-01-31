@@ -40,8 +40,8 @@
     {
       "path": "force-app-chapter-4",
       "package": "RenewalsChapter4",
-      "versionName": "ver 0.1",
-      "versionNumber": "0.1.0.NEXT",
+      "versionName": "ver 0.3",
+      "versionNumber": "0.3.0.NEXT",
       "default": true,
       "versionDescription": "Renewals Package for Chapter 4 of Notion eBook",
       "dependencies": [
@@ -76,6 +76,10 @@
     "RenewalsChapter3@0.1.0-1": "04tN300000955UvIAI",
     "RenewalsChapter3@0.2.0-1": "04tN30000095NbVIAU",
     "RenewalsChapter3@0.3.0-1": "04tN30000097wYLIAY",
-    "RenewalsChapter4": "0HoN300000000WHKAY"
+    "RenewalsChapter4": "0HoN300000000WHKAY",
+    "RenewalsChapter4@0.1.0-1": "04tN3000009B0ifIAC",
+    "RenewalsChapter4@0.1.0-2": "04tN3000009B16rIAC",
+    "RenewalsChapter4@0.2.0-1": "04tN3000009BKUTIA4",
+    "RenewalsChapter4@0.3.0-1": "04tN3000009BOoDIAW"
   }
 }
