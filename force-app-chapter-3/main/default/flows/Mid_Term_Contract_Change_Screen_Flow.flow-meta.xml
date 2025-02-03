@@ -211,12 +211,62 @@ TODAY() &gt; {!getBaseOpportunityById.Contract_End_Date__c},
         <name>churnEffectiveDate</name>
         <dataType>Date</dataType>
         <expression>DATE(
-    YEAR({!churnDate}) + IF(DAY({!churnDate}) &gt; DAY({!getBaseOpportunityById.Contract_Start_Date__c}) &amp;&amp; MONTH({!churnDate}) = 12, 1, 0),
-    IF(DAY({!churnDate}) &gt; DAY({!getBaseOpportunityById.Contract_Start_Date__c}), 
-       IF(MONTH({!churnDate}) = 12, 1, MONTH({!churnDate}) + 1), 
-       MONTH({!churnDate})
+    /* 1) Target Year */
+    YEAR({!churnDate})
+    + IF(
+        AND(
+            DAY({!churnDate}) &gt; DAY({!getBaseOpportunityById.Contract_Start_Date__c}),
+            MONTH({!churnDate}) = 12
+        ),
+        1,
+        0
     ),
-    DAY({!getBaseOpportunityById.Contract_Start_Date__c})
+
+    /* 2) Target Month */
+    IF(
+        DAY({!churnDate}) &gt; DAY({!getBaseOpportunityById.Contract_Start_Date__c}),
+        /* If we need to “bump” the month, handle December carefully */
+        IF(
+            MONTH({!churnDate}) = 12,
+            1,
+            MONTH({!churnDate}) + 1
+        ),
+        /* Otherwise, same month */
+        MONTH({!churnDate})
+    ),
+
+    /* 3) Target Day, capped by the last day of that year/month */
+    MIN(
+        DAY({!getBaseOpportunityById.Contract_Start_Date__c}),
+        DAY(
+            DATE(
+                /* Same year logic as above */
+                YEAR({!churnDate})
+                + IF(
+                    AND(
+                        DAY({!churnDate}) &gt; DAY({!getBaseOpportunityById.Contract_Start_Date__c}),
+                        MONTH({!churnDate}) = 12
+                    ),
+                    1,
+                    0
+                ),
+
+                /* Month + 1, so that subtracting 1 day yields the last day of our target month */
+                IF(
+                    DAY({!churnDate}) &gt; DAY({!getBaseOpportunityById.Contract_Start_Date__c}),
+                    IF(
+                        MONTH({!churnDate}) = 12,
+                        1,
+                        MONTH({!churnDate}) + 1
+                    ),
+                    MONTH({!churnDate})
+                ) + 1,
+
+                1
+            ) 
+            - 1 /* Subtract 1 day -&gt; last day of “target month” */
+        )
+    )
 )</expression>
     </formulas>
     <formulas>
@@ -247,12 +297,62 @@ TODAY() &gt; {!getBaseOpportunityById.Contract_End_Date__c},
         <name>downsellEffectiveDate</name>
         <dataType>Date</dataType>
         <expression>DATE(
-    YEAR({!downsellDate}) + IF(DAY({!downsellDate}) &gt; DAY({!getBaseOpportunityById.Contract_Start_Date__c}) &amp;&amp; MONTH({!downsellDate}) = 12, 1, 0),
-    IF(DAY({!downsellDate}) &gt; DAY({!getBaseOpportunityById.Contract_Start_Date__c}), 
-       IF(MONTH({!downsellDate}) = 12, 1, MONTH({!downsellDate}) + 1), 
-       MONTH({!downsellDate})
+    /* 1) Target Year */
+    YEAR({!downsellDate})
+    + IF(
+        AND(
+            DAY({!downsellDate}) &gt; DAY({!getBaseOpportunityById.Contract_Start_Date__c}),
+            MONTH({!downsellDate}) = 12
+        ),
+        1,
+        0
     ),
-    DAY({!getBaseOpportunityById.Contract_Start_Date__c})
+
+    /* 2) Target Month */
+    IF(
+        DAY({!downsellDate}) &gt; DAY({!getBaseOpportunityById.Contract_Start_Date__c}),
+        /* If we need to “bump” the month, handle December carefully */
+        IF(
+            MONTH({!downsellDate}) = 12,
+            1,
+            MONTH({!downsellDate}) + 1
+        ),
+        /* Otherwise, same month */
+        MONTH({!downsellDate})
+    ),
+
+    /* 3) Target Day, capped by the last day of that year/month */
+    MIN(
+        DAY({!getBaseOpportunityById.Contract_Start_Date__c}),
+        DAY(
+            DATE(
+                /* Same year logic as above */
+                YEAR({!downsellDate})
+                + IF(
+                    AND(
+                        DAY({!downsellDate}) &gt; DAY({!getBaseOpportunityById.Contract_Start_Date__c}),
+                        MONTH({!downsellDate}) = 12
+                    ),
+                    1,
+                    0
+                ),
+
+                /* Month + 1, so that subtracting 1 day yields the last day of our target month */
+                IF(
+                    DAY({!downsellDate}) &gt; DAY({!getBaseOpportunityById.Contract_Start_Date__c}),
+                    IF(
+                        MONTH({!downsellDate}) = 12,
+                        1,
+                        MONTH({!downsellDate}) + 1
+                    ),
+                    MONTH({!downsellDate})
+                ) + 1,
+
+                1
+            ) 
+            - 1 /* Subtract 1 day -&gt; last day of “target month” */
+        )
+    )
 )</expression>
     </formulas>
     <formulas>
@@ -319,12 +419,62 @@ TODAY() &gt; {!getBaseOpportunityById.Contract_End_Date__c},
         <name>upsellEffectiveDate</name>
         <dataType>Date</dataType>
         <expression>DATE(
-    YEAR({!upsellDate}) + IF(DAY({!upsellDate}) &gt; DAY({!getBaseOpportunityById.Contract_Start_Date__c}) &amp;&amp; MONTH({!upsellDate}) = 12, 1, 0),
-    IF(DAY({!upsellDate}) &gt; DAY({!getBaseOpportunityById.Contract_Start_Date__c}), 
-       IF(MONTH({!upsellDate}) = 12, 1, MONTH({!upsellDate}) + 1), 
-       MONTH({!upsellDate})
+    /* 1) Target Year */
+    YEAR({!upsellDate})
+    + IF(
+        AND(
+            DAY({!upsellDate}) &gt; DAY({!getBaseOpportunityById.Contract_Start_Date__c}),
+            MONTH({!upsellDate}) = 12
+        ),
+        1,
+        0
     ),
-    DAY({!getBaseOpportunityById.Contract_Start_Date__c})
+
+    /* 2) Target Month */
+    IF(
+        DAY({!upsellDate}) &gt; DAY({!getBaseOpportunityById.Contract_Start_Date__c}),
+        /* If we need to “bump” the month, handle December carefully */
+        IF(
+            MONTH({!upsellDate}) = 12,
+            1,
+            MONTH({!upsellDate}) + 1
+        ),
+        /* Otherwise, same month */
+        MONTH({!upsellDate})
+    ),
+
+    /* 3) Target Day, capped by the last day of that year/month */
+    MIN(
+        DAY({!getBaseOpportunityById.Contract_Start_Date__c}),
+        DAY(
+            DATE(
+                /* Same year logic as above */
+                YEAR({!upsellDate})
+                + IF(
+                    AND(
+                        DAY({!upsellDate}) &gt; DAY({!getBaseOpportunityById.Contract_Start_Date__c}),
+                        MONTH({!upsellDate}) = 12
+                    ),
+                    1,
+                    0
+                ),
+
+                /* Month + 1, so that subtracting 1 day yields the last day of our target month */
+                IF(
+                    DAY({!upsellDate}) &gt; DAY({!getBaseOpportunityById.Contract_Start_Date__c}),
+                    IF(
+                        MONTH({!upsellDate}) = 12,
+                        1,
+                        MONTH({!upsellDate}) + 1
+                    ),
+                    MONTH({!upsellDate})
+                ) + 1,
+
+                1
+            ) 
+            - 1 /* Subtract 1 day -&gt; last day of “target month” */
+        )
+    )
 )</expression>
     </formulas>
     <formulas>
