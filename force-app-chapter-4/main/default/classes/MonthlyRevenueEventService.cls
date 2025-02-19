@@ -102,15 +102,28 @@ public class MonthlyRevenueEventService {
 
       // Calculate contract duration and loop through months
       Date startDate = opp.Contract_Start_Date__c;
-      Date endDate = startDate.addMonths(opp.Contract_Term__c.intValue() - 1);
+      Integer contractMonths = opp.Contract_Term__c.intValue();
 
-      for (Date currentMonth = startDate; currentMonth <= endDate; currentMonth = currentMonth.addMonths(1)) {
-          if (currentMonth == startDate) {
+      for (Integer i = 0; i < contractMonths; i++) {
+          // First, add i months to the original start date
+          Date baseDate = startDate.addMonths(i);
+          // Find the actual number of days in that new month
+          Integer daysInMo = Date.daysInMonth(baseDate.year(), baseDate.month());
+          // Decide which day to use: either the original day or the max day in the month
+          Integer dayToUse = Math.min(startDate.day(), daysInMo);
+
+          // Construct the “currentMonth” date safely
+          Date currentMonth = Date.newInstance(baseDate.year(), baseDate.month(), dayToUse);
+
+          // Continue as before
+          if (i == 0) {
               handleFirstMonthRevenue(opp, originalOpp, currentMonth, mreList);
           } else {
               mreList.add(createMRE(opp, currentMonth, 'MRR', opp.MRR__c));
           }
       }
+
+
 
       if (!mreList.isEmpty()) {
           insert mreList;
