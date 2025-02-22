@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
+  <fieldPermissions>
+    <editable>true</editable>
+    <field>Cohort__c.Cohort_Start_Amount__c</field>
+    <readable>true</readable>
+  </fieldPermissions>
+  <fieldPermissions>
+    <editable>true</editable>
+    <field>Monthly_Revenue_Event__c.Cohort__c</field>
+    <readable>true</readable>
+  </fieldPermissions>
+  <fieldPermissions>
+    <editable>true</editable>
+    <field>Monthly_Revenue_Event__c.Month_Number__c</field>
+    <readable>true</readable>
+  </fieldPermissions>
+  <fieldPermissions>
+    <editable>true</editable>
+    <field>Monthly_Revenue_Event__c.Root_Opportunity__c</field>
+    <readable>true</readable>
+  </fieldPermissions>
+  <hasActivationRequired>false</hasActivationRequired>
+  <label>RenewalFrameworkC5</label>
+  <objectPermissions>
+    <allowCreate>true</allowCreate>
+    <allowDelete>true</allowDelete>
+    <allowEdit>true</allowEdit>
+    <allowRead>true</allowRead>
+    <modifyAllRecords>true</modifyAllRecords>
+    <object>Cohort__c</object>
+    <viewAllRecords>true</viewAllRecords>
+  </objectPermissions>
+</PermissionSet>

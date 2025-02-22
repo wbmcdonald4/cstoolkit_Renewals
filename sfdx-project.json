@@ -26,7 +26,7 @@
       "package": "RenewalsChapter3",
       "versionName": "ver 0.5",
       "versionNumber": "0.5.0.NEXT",
-      "default": true,
+      "default": false,
       "versionDescription": "Renewals Package for Chapter 3 of Notion eBook",
       "dependencies": [
         {
@@ -53,6 +53,28 @@
         },
         {
           "subscriberPackageVersionId": "04tN3000009CqnFIAS"
+        }
+      ]
+    },
+    {
+      "path": "force-app-chapter-5",
+      "package": "RenewalsChapter5",
+      "versionName": "ver 0.2",
+      "versionNumber": "0.2.0.NEXT",
+      "default": true,
+      "versionDescription": "Renewals Package for Chapter 5 of Notion eBook",
+      "dependencies": [
+        {
+          "subscriberPackageVersionId": "04tN3000009CpsnIAC"
+        },
+        {
+          "subscriberPackageVersionId": "04tN3000009CqLpIAK"
+        },
+        {
+          "subscriberPackageVersionId": "04tN3000009CqnFIAS"
+        },
+        {
+          "subscriberPackageVersionId": "04tN3000009R8VlIAK"
         }
       ]
     }
@@ -88,6 +110,9 @@
     "RenewalsChapter4@0.2.0-1": "04tN3000009BKUTIA4",
     "RenewalsChapter4@0.3.0-1": "04tN3000009BOoDIAW",
     "RenewalsChapter4@0.4.0-1": "04tN3000009Cr1lIAC",
-    "RenewalsChapter4@0.5.0-1": "04tN3000009R8VlIAK"
+    "RenewalsChapter4@0.5.0-1": "04tN3000009R8VlIAK",
+    "RenewalsChapter5": "0HoN300000000mPKAQ",
+    "RenewalsChapter5@0.1.0-1": "04tN3000009TrN7IAK",
+    "RenewalsChapter5@0.2.0-1": "04tN3000009TsvtIAC"
   }
 }
