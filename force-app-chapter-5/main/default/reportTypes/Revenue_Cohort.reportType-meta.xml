@@ -1,9 +1,10 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" ?>
 <ReportType xmlns="http://soap.sforce.com/2006/04/metadata">
     <baseObject>Cohort__c</baseObject>
     <category>other</category>
     <deployed>true</deployed>
-    <description>Use this report type to build cohorted revenue reporting</description>
+    <description
+  >Use this report type to build cohorted revenue reporting</description>
     <join>
         <outerJoin>false</outerJoin>
         <relationship>Monthly_Revenue_Events__r</relationship>
@@ -69,7 +70,8 @@
         </columns>
         <columns>
             <checkedByDefault>true</checkedByDefault>
-            <displayNameOverride>Monthly Revenue Event Name</displayNameOverride>
+            <displayNameOverride
+      >Monthly Revenue Event Name</displayNameOverride>
             <field>Name</field>
             <table>Cohort__c.Monthly_Revenue_Events__r</table>
         </columns>

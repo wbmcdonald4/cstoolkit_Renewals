@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" ?>
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>Revenue_Movement_ARR__c</fullName>
     <externalId>false</externalId>
@@ -24,7 +24,8 @@
   )
 )</formula>
     <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-    <inlineHelpText>Displays the difference in ARR between the current opportunity and the previous one.</inlineHelpText>
+    <inlineHelpText
+  >Displays the difference in ARR between the current opportunity and the previous one.</inlineHelpText>
     <label>Revenue Movement ARR</label>
     <precision>18</precision>
     <required>false</required>

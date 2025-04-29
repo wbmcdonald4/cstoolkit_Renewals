@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" ?>
 <Flow xmlns="http://soap.sforce.com/2006/04/metadata">
     <apiVersion>62.0</apiVersion>
     <environments>Default</environments>
@@ -10,9 +10,11 @@
     <formulas>
         <name>renewalName</name>
         <dataType>String</dataType>
-        <expression>{!$Record.Account.Name} + &apos; - Renewal&apos;</expression>
+        <expression
+    >{!$Record.Account.Name} + &apos; - Renewal&apos;</expression>
     </formulas>
-    <interviewLabel>Closed Won Opportunity Flow {!$Flow.CurrentDateTime}</interviewLabel>
+    <interviewLabel
+  >Closed Won Opportunity Flow {!$Flow.CurrentDateTime}</interviewLabel>
     <label>Closed Won Opportunity Flow</label>
     <processMetadataValues>
         <name>BuilderType</name>
@@ -103,7 +105,8 @@
         <label>Get Record Type Id</label>
         <locationX>176</locationX>
         <locationY>323</locationY>
-        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <assignNullValuesIfNoRecordsFound
+    >false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>createRenewalOpportunity</targetReference>
         </connector>
@@ -145,7 +148,8 @@
         <connector>
             <targetReference>getRecordTypeId</targetReference>
         </connector>
-        <doesRequireRecordChangedToMeetCriteria>true</doesRequireRecordChangedToMeetCriteria>
+        <doesRequireRecordChangedToMeetCriteria
+    >true</doesRequireRecordChangedToMeetCriteria>
         <filterLogic>and</filterLogic>
         <filters>
             <field>StageName</field>

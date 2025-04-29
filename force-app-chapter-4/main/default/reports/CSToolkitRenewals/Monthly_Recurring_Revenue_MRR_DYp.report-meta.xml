@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" ?>
 <Report xmlns="http://soap.sforce.com/2006/04/metadata">
     <chart>
         <backgroundColor1>#FFFFFF</backgroundColor1>
@@ -15,7 +15,8 @@
         <groupingColumn>Monthly_Revenue_Event__c.Month__c</groupingColumn>
         <legendPosition>Right</legendPosition>
         <location>CHART_BOTTOM</location>
-        <secondaryGroupingColumn>Monthly_Revenue_Event__c.Type__c</secondaryGroupingColumn>
+        <secondaryGroupingColumn
+    >Monthly_Revenue_Event__c.Type__c</secondaryGroupingColumn>
         <showAxisLabels>false</showAxisLabels>
         <showPercentage>false</showPercentage>
         <showTotal>false</showTotal>
@@ -64,7 +65,8 @@
         <name>co</name>
         <value>1</value>
     </params>
-    <reportType>OpportunityCustomEntity$Monthly_Revenue_Event__c@Monthly_Revenue_Event__c.Account__c</reportType>
+    <reportType
+  >OpportunityCustomEntity$Monthly_Revenue_Event__c@Monthly_Revenue_Event__c.Account__c</reportType>
     <scope>organization</scope>
     <showDetails>true</showDetails>
     <showGrandTotal>true</showGrandTotal>

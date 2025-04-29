@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" ?>
 <Flow xmlns="http://soap.sforce.com/2006/04/metadata">
     <actionCalls>
         <name>navigateToChurn</name>
@@ -11,7 +11,8 @@
         <inputParameters>
             <name>recordId</name>
             <value>
-                <elementReference>getRenewalOpportunityByRenewedBy.Id</elementReference>
+                <elementReference
+        >getRenewalOpportunityByRenewedBy.Id</elementReference>
             </value>
         </inputParameters>
         <nameSegment>c:NavigateToRecord</nameSegment>
@@ -29,7 +30,8 @@
         <inputParameters>
             <name>recordId</name>
             <value>
-                <elementReference>getRenewalOpportunityByRenewedBy.Id</elementReference>
+                <elementReference
+        >getRenewalOpportunityByRenewedBy.Id</elementReference>
             </value>
         </inputParameters>
         <nameSegment>c:NavigateToRecord</nameSegment>
@@ -132,7 +134,8 @@
             <name>contractActive</name>
             <conditionLogic>and</conditionLogic>
             <conditions>
-                <leftValueReference>getBaseOpportunityById.Contract_Status__c</leftValueReference>
+                <leftValueReference
+        >getBaseOpportunityById.Contract_Status__c</leftValueReference>
                 <operator>EqualTo</operator>
                 <rightValue>
                     <stringValue>Active</stringValue>
@@ -160,7 +163,8 @@ TODAY() &gt; {!getBaseOpportunityById.Contract_End_Date__c},
     <formulas>
         <name>churnBaseOpportunityAmount</name>
         <dataType>Currency</dataType>
-        <expression>({!getBaseOpportunityById.ARR__c}/12)*{!churnBaseOpportunityTerm}</expression>
+        <expression
+    >({!getBaseOpportunityById.ARR__c}/12)*{!churnBaseOpportunityTerm}</expression>
         <scale>2</scale>
     </formulas>
     <formulas>
@@ -272,25 +276,29 @@ TODAY() &gt; {!getBaseOpportunityById.Contract_End_Date__c},
     <formulas>
         <name>downsellARR</name>
         <dataType>Currency</dataType>
-        <expression>({!downsellTotalRemainingContractValue}/{!downsellTermLength})*12</expression>
+        <expression
+    >({!downsellTotalRemainingContractValue}/{!downsellTermLength})*12</expression>
         <scale>2</scale>
     </formulas>
     <formulas>
         <name>downsellARRDifference</name>
         <dataType>Currency</dataType>
-        <expression>({!downsellTotalRemainingContractValue}/{!downsellTermLength})*12</expression>
+        <expression
+    >({!downsellTotalRemainingContractValue}/{!downsellTermLength})*12</expression>
         <scale>2</scale>
     </formulas>
     <formulas>
         <name>downsellBaseOpportunityAmount</name>
         <dataType>Currency</dataType>
-        <expression>({!getBaseOpportunityById.ARR__c}/12) * {!downsellBaseOpportunityTerm}</expression>
+        <expression
+    >({!getBaseOpportunityById.ARR__c}/12) * {!downsellBaseOpportunityTerm}</expression>
         <scale>2</scale>
     </formulas>
     <formulas>
         <name>downsellBaseOpportunityTerm</name>
         <dataType>Number</dataType>
-        <expression>{!getBaseOpportunityById.Contract_Term__c} - {!downsellTermLength}</expression>
+        <expression
+    >{!getBaseOpportunityById.Contract_Term__c} - {!downsellTermLength}</expression>
         <scale>0</scale>
     </formulas>
     <formulas>
@@ -358,13 +366,15 @@ TODAY() &gt; {!getBaseOpportunityById.Contract_End_Date__c},
     <formulas>
         <name>downsellMRR</name>
         <dataType>Currency</dataType>
-        <expression>{!downsellTotalRemainingContractValue}/{!downsellTermLength}</expression>
+        <expression
+    >{!downsellTotalRemainingContractValue}/{!downsellTermLength}</expression>
         <scale>2</scale>
     </formulas>
     <formulas>
         <name>downsellMRRDifference</name>
         <dataType>Currency</dataType>
-        <expression>{!getBaseOpportunityById.MRR__c} - {!downsellMRR}</expression>
+        <expression
+    >{!getBaseOpportunityById.MRR__c} - {!downsellMRR}</expression>
         <scale>2</scale>
     </formulas>
     <formulas>
@@ -411,11 +421,13 @@ TODAY() &gt; {!getBaseOpportunityById.Contract_End_Date__c},
     <formulas>
         <name>upsellARR</name>
         <dataType>Currency</dataType>
-        <expression>({!upsellTotalAdditionalContractValue}/{!upsellTermLength})*12</expression>
+        <expression
+    >({!upsellTotalAdditionalContractValue}/{!upsellTermLength})*12</expression>
         <scale>2</scale>
     </formulas>
     <formulas>
-        <description>This formula calculates the &quot;Upsell Effective Date&quot; by aligning it to the day of the original contract start date, setting it to the next month if the upsell date falls after the contract start day, and handling year rollover if in December.</description>
+        <description
+    >This formula calculates the &quot;Upsell Effective Date&quot; by aligning it to the day of the original contract start date, setting it to the next month if the upsell date falls after the contract start day, and handling year rollover if in December.</description>
         <name>upsellEffectiveDate</name>
         <dataType>Date</dataType>
         <expression>DATE(
@@ -480,13 +492,15 @@ TODAY() &gt; {!getBaseOpportunityById.Contract_End_Date__c},
     <formulas>
         <name>upsellMRR</name>
         <dataType>Currency</dataType>
-        <expression>{!upsellTotalAdditionalContractValue}/{!upsellTermLength}</expression>
+        <expression
+    >{!upsellTotalAdditionalContractValue}/{!upsellTermLength}</expression>
         <scale>2</scale>
     </formulas>
     <formulas>
         <name>upsellName</name>
         <dataType>String</dataType>
-        <expression>{!getBaseOpportunityById.Account.Name} + &quot; - Upsell&quot;</expression>
+        <expression
+    >{!getBaseOpportunityById.Account.Name} + &quot; - Upsell&quot;</expression>
     </formulas>
     <formulas>
         <name>upsellTermLength</name>
@@ -529,7 +543,8 @@ TODAY() &gt; {!getBaseOpportunityById.Contract_End_Date__c},
   )</expression>
         <scale>0</scale>
     </formulas>
-    <interviewLabel>Mid Term Contract Change Screen Flow {!$Flow.CurrentDateTime}</interviewLabel>
+    <interviewLabel
+  >Mid Term Contract Change Screen Flow {!$Flow.CurrentDateTime}</interviewLabel>
     <label>Mid Term Contract Change Screen Flow</label>
     <processMetadataValues>
         <name>BuilderType</name>
@@ -561,7 +576,8 @@ TODAY() &gt; {!getBaseOpportunityById.Contract_End_Date__c},
         <inputAssignments>
             <field>AccountId</field>
             <value>
-                <elementReference>getBaseOpportunityById.AccountId</elementReference>
+                <elementReference
+        >getBaseOpportunityById.AccountId</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
@@ -573,7 +589,8 @@ TODAY() &gt; {!getBaseOpportunityById.Contract_End_Date__c},
         <inputAssignments>
             <field>Amount</field>
             <value>
-                <elementReference>upsellTotalAdditionalContractValue</elementReference>
+                <elementReference
+        >upsellTotalAdditionalContractValue</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
@@ -620,7 +637,8 @@ TODAY() &gt; {!getBaseOpportunityById.Contract_End_Date__c},
         <label>Get Base Opportunity By Id</label>
         <locationX>578</locationX>
         <locationY>134</locationY>
-        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <assignNullValuesIfNoRecordsFound
+    >false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>getRenewalOpportunityByRenewedBy</targetReference>
         </connector>
@@ -641,7 +659,8 @@ TODAY() &gt; {!getBaseOpportunityById.Contract_End_Date__c},
         <label>getRecordTypeId</label>
         <locationX>50</locationX>
         <locationY>782</locationY>
-        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <assignNullValuesIfNoRecordsFound
+    >false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>createUpsellRecord</targetReference>
         </connector>
@@ -669,7 +688,8 @@ TODAY() &gt; {!getBaseOpportunityById.Contract_End_Date__c},
         <label>Get Renewal Opportunity By Renewed By</label>
         <locationX>578</locationX>
         <locationY>242</locationY>
-        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <assignNullValuesIfNoRecordsFound
+    >false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>isContractActive</targetReference>
         </connector>
@@ -678,7 +698,8 @@ TODAY() &gt; {!getBaseOpportunityById.Contract_End_Date__c},
             <field>Id</field>
             <operator>EqualTo</operator>
             <value>
-                <elementReference>getBaseOpportunityById.Renewed_By__c</elementReference>
+                <elementReference
+        >getBaseOpportunityById.Renewed_By__c</elementReference>
             </value>
         </filters>
         <getFirstRecordOnly>true</getFirstRecordOnly>
@@ -734,7 +755,8 @@ TODAY() &gt; {!getBaseOpportunityById.Contract_End_Date__c},
         <inputAssignments>
             <field>Amount</field>
             <value>
-                <elementReference>downsellBaseOpportunityAmount</elementReference>
+                <elementReference
+        >downsellBaseOpportunityAmount</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
@@ -758,13 +780,15 @@ TODAY() &gt; {!getBaseOpportunityById.Contract_End_Date__c},
             <field>Id</field>
             <operator>EqualTo</operator>
             <value>
-                <elementReference>getRenewalOpportunityByRenewedBy.Id</elementReference>
+                <elementReference
+        >getRenewalOpportunityByRenewedBy.Id</elementReference>
             </value>
         </filters>
         <inputAssignments>
             <field>Amount</field>
             <value>
-                <elementReference>getBaseOpportunityById.ARR__c</elementReference>
+                <elementReference
+        >getBaseOpportunityById.ARR__c</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
@@ -806,13 +830,15 @@ TODAY() &gt; {!getBaseOpportunityById.Contract_End_Date__c},
             <field>Id</field>
             <operator>EqualTo</operator>
             <value>
-                <elementReference>getRenewalOpportunityByRenewedBy.Id</elementReference>
+                <elementReference
+        >getRenewalOpportunityByRenewedBy.Id</elementReference>
             </value>
         </filters>
         <inputAssignments>
             <field>Amount</field>
             <value>
-                <elementReference>downsellTotalRemainingContractValue</elementReference>
+                <elementReference
+        >downsellTotalRemainingContractValue</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
@@ -854,7 +880,8 @@ TODAY() &gt; {!getBaseOpportunityById.Contract_End_Date__c},
         </connector>
         <fields>
             <name>actionTypeInputDisplayText</name>
-            <fieldText>&lt;p&gt;&lt;strong&gt;Current Contract Status:&lt;/strong&gt;&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;strong&gt;Start Date:&lt;/strong&gt; {!getBaseOpportunityById.Contract_Start_Date__c}&lt;/li&gt;&lt;li&gt;&lt;strong&gt;End Date:&lt;/strong&gt; {!getBaseOpportunityById.Contract_End_Date__c}&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Time Remaining in Contract: &lt;/strong&gt;{!baseOpportunityRemainingTerm}&lt;strong&gt; &lt;/strong&gt;months&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;&lt;strong&gt;What action type is right for you?&lt;/strong&gt;&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;strong&gt;Upsell&lt;/strong&gt; – Amend the contract to include additional products or services.&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Downsell&lt;/strong&gt; – Apply a discount to the current subscription before the contract end date.&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Churn&lt;/strong&gt; – Cancel the current contract before its end date.&lt;/li&gt;&lt;/ul&gt;</fieldText>
+            <fieldText
+      >&lt;p&gt;&lt;strong&gt;Current Contract Status:&lt;/strong&gt;&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;strong&gt;Start Date:&lt;/strong&gt; {!getBaseOpportunityById.Contract_Start_Date__c}&lt;/li&gt;&lt;li&gt;&lt;strong&gt;End Date:&lt;/strong&gt; {!getBaseOpportunityById.Contract_End_Date__c}&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Time Remaining in Contract: &lt;/strong&gt;{!baseOpportunityRemainingTerm}&lt;strong&gt; &lt;/strong&gt;months&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;&lt;strong&gt;What action type is right for you?&lt;/strong&gt;&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;strong&gt;Upsell&lt;/strong&gt; – Amend the contract to include additional products or services.&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Downsell&lt;/strong&gt; – Apply a discount to the current subscription before the contract end date.&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Churn&lt;/strong&gt; – Cancel the current contract before its end date.&lt;/li&gt;&lt;/ul&gt;</fieldText>
             <fieldType>DisplayText</fieldType>
         </fields>
         <fields>
@@ -865,7 +892,8 @@ TODAY() &gt; {!getBaseOpportunityById.Contract_End_Date__c},
             <dataType>String</dataType>
             <fieldText>Select an action type:</fieldText>
             <fieldType>DropdownBox</fieldType>
-            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <inputsOnNextNavToAssocScrn
+      >UseStoredValues</inputsOnNextNavToAssocScrn>
             <isRequired>true</isRequired>
         </fields>
         <showFooter>true</showFooter>
@@ -884,7 +912,8 @@ TODAY() &gt; {!getBaseOpportunityById.Contract_End_Date__c},
         </connector>
         <fields>
             <name>churnDateDisplayText</name>
-            <fieldText>&lt;p&gt;&lt;strong&gt;Current Contract Details:&lt;/strong&gt;&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;strong&gt;Start Date:&lt;/strong&gt; {!getBaseOpportunityById.Contract_Start_Date__c}&lt;/li&gt;&lt;li&gt;&lt;strong&gt;End Date:&lt;/strong&gt; {!getBaseOpportunityById.Contract_End_Date__c}&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Contract Term:&lt;/strong&gt; {!getBaseOpportunityById.Contract_Term__c} months&lt;/li&gt;&lt;li&gt;&lt;strong&gt;MRR:&lt;/strong&gt; ${!getBaseOpportunityById.MRR__c}&lt;/li&gt;&lt;li&gt;&lt;strong&gt;ARR:&lt;/strong&gt; ${!getBaseOpportunityById.ARR__c}&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Total Contract Value:&lt;/strong&gt; ${!getBaseOpportunityById.Amount}&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;Please provide the following details for the requested &lt;strong&gt;Churn&lt;/strong&gt;:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;strong&gt;Churn Date:&lt;/strong&gt; Please enter the date the vendor will no longer user our service.&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;</fieldText>
+            <fieldText
+      >&lt;p&gt;&lt;strong&gt;Current Contract Details:&lt;/strong&gt;&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;strong&gt;Start Date:&lt;/strong&gt; {!getBaseOpportunityById.Contract_Start_Date__c}&lt;/li&gt;&lt;li&gt;&lt;strong&gt;End Date:&lt;/strong&gt; {!getBaseOpportunityById.Contract_End_Date__c}&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Contract Term:&lt;/strong&gt; {!getBaseOpportunityById.Contract_Term__c} months&lt;/li&gt;&lt;li&gt;&lt;strong&gt;MRR:&lt;/strong&gt; ${!getBaseOpportunityById.MRR__c}&lt;/li&gt;&lt;li&gt;&lt;strong&gt;ARR:&lt;/strong&gt; ${!getBaseOpportunityById.ARR__c}&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Total Contract Value:&lt;/strong&gt; ${!getBaseOpportunityById.Amount}&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;Please provide the following details for the requested &lt;strong&gt;Churn&lt;/strong&gt;:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;strong&gt;Churn Date:&lt;/strong&gt; Please enter the date the vendor will no longer user our service.&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;</fieldText>
             <fieldType>DisplayText</fieldType>
         </fields>
         <fields>
@@ -892,12 +921,14 @@ TODAY() &gt; {!getBaseOpportunityById.Contract_End_Date__c},
             <dataType>Date</dataType>
             <fieldText>Churn Date</fieldText>
             <fieldType>InputField</fieldType>
-            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <inputsOnNextNavToAssocScrn
+      >UseStoredValues</inputsOnNextNavToAssocScrn>
             <isRequired>true</isRequired>
         </fields>
         <fields>
             <name>churnPreviewDisplayText</name>
-            <fieldText>&lt;p&gt;The following changes will be made to the current contract:&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Churn Date:&lt;/strong&gt; {!churnDate}&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Effective Churn Date:&lt;/strong&gt; {!churnEffectiveDate}&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Months Realized Pre-Termination: &lt;/strong&gt;{!churnBaseOpportunityTerm}&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Adjusted Contract Amount:&lt;/strong&gt; {!churnBaseOpportunityAmount}&lt;/p&gt;&lt;p&gt;If this is correct, please proceed.&lt;/p&gt;</fieldText>
+            <fieldText
+      >&lt;p&gt;The following changes will be made to the current contract:&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Churn Date:&lt;/strong&gt; {!churnDate}&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Effective Churn Date:&lt;/strong&gt; {!churnEffectiveDate}&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Months Realized Pre-Termination: &lt;/strong&gt;{!churnBaseOpportunityTerm}&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Adjusted Contract Amount:&lt;/strong&gt; {!churnBaseOpportunityAmount}&lt;/p&gt;&lt;p&gt;If this is correct, please proceed.&lt;/p&gt;</fieldText>
             <fieldType>DisplayText</fieldType>
         </fields>
         <showFooter>true</showFooter>
@@ -913,7 +944,8 @@ TODAY() &gt; {!getBaseOpportunityById.Contract_End_Date__c},
         <allowPause>false</allowPause>
         <fields>
             <name>ContractNotActiveErrorDisplayText</name>
-            <fieldText>&lt;p&gt;&lt;span style=&quot;font-family: &amp;quot;Apple Color Emoji&amp;quot;, &amp;quot;Segoe UI Emoji&amp;quot;, &amp;quot;Segoe UI Symbol&amp;quot;; font-size: 1em;&quot;&gt;⚠️&lt;/span&gt; &lt;strong&gt;Action Required: Active Contract Needed &lt;/strong&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;This process can only be triggered from an &lt;strong&gt;active contract Opportunity&lt;/strong&gt;. &lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;Please check the contract status of the current Opportunity to ensure it represents an active contract.&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;You can also go to the &lt;strong&gt;Account&lt;/strong&gt; associated with this Opportunity and look for active contracts there.&lt;/p&gt;</fieldText>
+            <fieldText
+      >&lt;p&gt;&lt;span style=&quot;font-family: &amp;quot;Apple Color Emoji&amp;quot;, &amp;quot;Segoe UI Emoji&amp;quot;, &amp;quot;Segoe UI Symbol&amp;quot;; font-size: 1em;&quot;&gt;⚠️&lt;/span&gt; &lt;strong&gt;Action Required: Active Contract Needed &lt;/strong&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;This process can only be triggered from an &lt;strong&gt;active contract Opportunity&lt;/strong&gt;. &lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;Please check the contract status of the current Opportunity to ensure it represents an active contract.&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;You can also go to the &lt;strong&gt;Account&lt;/strong&gt; associated with this Opportunity and look for active contracts there.&lt;/p&gt;</fieldText>
             <fieldType>DisplayText</fieldType>
         </fields>
         <showFooter>true</showFooter>
@@ -932,7 +964,8 @@ TODAY() &gt; {!getBaseOpportunityById.Contract_End_Date__c},
         </connector>
         <fields>
             <name>downsellDateDisplayText</name>
-            <fieldText>&lt;p&gt;&lt;strong&gt;Current Contract Details:&lt;/strong&gt;&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;strong&gt;Start Date:&lt;/strong&gt; {!getBaseOpportunityById.Contract_Start_Date__c}&lt;/li&gt;&lt;li&gt;&lt;strong&gt;End Date:&lt;/strong&gt; {!getBaseOpportunityById.Contract_End_Date__c}&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Contract Term:&lt;/strong&gt; {!getBaseOpportunityById.Contract_Term__c} months&lt;/li&gt;&lt;li&gt;&lt;strong&gt;MRR:&lt;/strong&gt; ${!getBaseOpportunityById.MRR__c}&lt;/li&gt;&lt;li&gt;&lt;strong&gt;ARR:&lt;/strong&gt; ${!getBaseOpportunityById.ARR__c}&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Total Contract Value:&lt;/strong&gt; ${!getBaseOpportunityById.Amount}&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;Please provide the following details for the requested &lt;strong&gt;Downsell&lt;/strong&gt;:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;strong&gt;Downsell Date:&lt;/strong&gt; The date when the downsell was agreed upon.&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Total Remaining Contract Value:&lt;/strong&gt; The total amount the client will pay for the remainder of this contract.&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;</fieldText>
+            <fieldText
+      >&lt;p&gt;&lt;strong&gt;Current Contract Details:&lt;/strong&gt;&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;strong&gt;Start Date:&lt;/strong&gt; {!getBaseOpportunityById.Contract_Start_Date__c}&lt;/li&gt;&lt;li&gt;&lt;strong&gt;End Date:&lt;/strong&gt; {!getBaseOpportunityById.Contract_End_Date__c}&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Contract Term:&lt;/strong&gt; {!getBaseOpportunityById.Contract_Term__c} months&lt;/li&gt;&lt;li&gt;&lt;strong&gt;MRR:&lt;/strong&gt; ${!getBaseOpportunityById.MRR__c}&lt;/li&gt;&lt;li&gt;&lt;strong&gt;ARR:&lt;/strong&gt; ${!getBaseOpportunityById.ARR__c}&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Total Contract Value:&lt;/strong&gt; ${!getBaseOpportunityById.Amount}&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;Please provide the following details for the requested &lt;strong&gt;Downsell&lt;/strong&gt;:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;strong&gt;Downsell Date:&lt;/strong&gt; The date when the downsell was agreed upon.&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Total Remaining Contract Value:&lt;/strong&gt; The total amount the client will pay for the remainder of this contract.&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;</fieldText>
             <fieldType>DisplayText</fieldType>
         </fields>
         <fields>
@@ -940,7 +973,8 @@ TODAY() &gt; {!getBaseOpportunityById.Contract_End_Date__c},
             <dataType>Date</dataType>
             <fieldText>Downsell Date</fieldText>
             <fieldType>InputField</fieldType>
-            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <inputsOnNextNavToAssocScrn
+      >UseStoredValues</inputsOnNextNavToAssocScrn>
             <isRequired>true</isRequired>
         </fields>
         <fields>
@@ -948,13 +982,15 @@ TODAY() &gt; {!getBaseOpportunityById.Contract_End_Date__c},
             <dataType>Currency</dataType>
             <fieldText>Enter Total Remaining Contract Value</fieldText>
             <fieldType>InputField</fieldType>
-            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <inputsOnNextNavToAssocScrn
+      >UseStoredValues</inputsOnNextNavToAssocScrn>
             <isRequired>true</isRequired>
             <scale>2</scale>
         </fields>
         <fields>
             <name>downsellPreviewDisplayText</name>
-            <fieldText>&lt;p&gt;&lt;strong&gt;Downsell Preview:&lt;/strong&gt;&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;strong&gt;Downsell Date:&lt;/strong&gt; {!downsellDate}&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Downsell Effective Date:&lt;/strong&gt; {!downsellEffectiveDate}&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Downsell Term:&lt;/strong&gt; {!downsellTermLength} months&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Downsell MRR:&lt;/strong&gt; {!downsellMRR} (&lt;strong&gt;{!downsellMRRDifference}/month&lt;/strong&gt; discount will be applied)&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Downsell ARR:&lt;/strong&gt; {!downsellARR} (&lt;strong&gt;{!downsellARRDifference}/year&lt;/strong&gt; discount will be applied)&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Total Additional Contract Value:&lt;/strong&gt; {!downsellTotalRemainingContractValue}&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;If this is correct, please proceed.&lt;/p&gt;</fieldText>
+            <fieldText
+      >&lt;p&gt;&lt;strong&gt;Downsell Preview:&lt;/strong&gt;&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;strong&gt;Downsell Date:&lt;/strong&gt; {!downsellDate}&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Downsell Effective Date:&lt;/strong&gt; {!downsellEffectiveDate}&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Downsell Term:&lt;/strong&gt; {!downsellTermLength} months&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Downsell MRR:&lt;/strong&gt; {!downsellMRR} (&lt;strong&gt;{!downsellMRRDifference}/month&lt;/strong&gt; discount will be applied)&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Downsell ARR:&lt;/strong&gt; {!downsellARR} (&lt;strong&gt;{!downsellARRDifference}/year&lt;/strong&gt; discount will be applied)&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Total Additional Contract Value:&lt;/strong&gt; {!downsellTotalRemainingContractValue}&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;If this is correct, please proceed.&lt;/p&gt;</fieldText>
             <fieldType>DisplayText</fieldType>
         </fields>
         <showFooter>true</showFooter>
@@ -973,7 +1009,8 @@ TODAY() &gt; {!getBaseOpportunityById.Contract_End_Date__c},
         </connector>
         <fields>
             <name>upsellDateDisplayText</name>
-            <fieldText>&lt;p&gt;&lt;strong&gt;Current Contract Details:&lt;/strong&gt;&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;strong&gt;Start Date:&lt;/strong&gt; {!getBaseOpportunityById.Contract_Start_Date__c}&lt;/li&gt;&lt;li&gt;&lt;strong&gt;End Date:&lt;/strong&gt; {!getBaseOpportunityById.Contract_End_Date__c}&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Contract Term:&lt;/strong&gt; {!getBaseOpportunityById.Contract_Term__c} months&lt;/li&gt;&lt;li&gt;&lt;strong&gt;MRR:&lt;/strong&gt; ${!getBaseOpportunityById.MRR__c}&lt;/li&gt;&lt;li&gt;&lt;strong&gt;ARR:&lt;/strong&gt; ${!getBaseOpportunityById.ARR__c}&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Total Contract Value:&lt;/strong&gt; ${!getBaseOpportunityById.Amount}&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;Please provide the following details for the requested &lt;strong&gt;Upsell&lt;/strong&gt;:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;strong&gt;Upsell Date:&lt;/strong&gt; The date when the upsell was agreed upon.&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Total Additional Contract Value:&lt;/strong&gt; The total additional amount being added to the contract for the remaining months.&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;</fieldText>
+            <fieldText
+      >&lt;p&gt;&lt;strong&gt;Current Contract Details:&lt;/strong&gt;&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;strong&gt;Start Date:&lt;/strong&gt; {!getBaseOpportunityById.Contract_Start_Date__c}&lt;/li&gt;&lt;li&gt;&lt;strong&gt;End Date:&lt;/strong&gt; {!getBaseOpportunityById.Contract_End_Date__c}&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Contract Term:&lt;/strong&gt; {!getBaseOpportunityById.Contract_Term__c} months&lt;/li&gt;&lt;li&gt;&lt;strong&gt;MRR:&lt;/strong&gt; ${!getBaseOpportunityById.MRR__c}&lt;/li&gt;&lt;li&gt;&lt;strong&gt;ARR:&lt;/strong&gt; ${!getBaseOpportunityById.ARR__c}&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Total Contract Value:&lt;/strong&gt; ${!getBaseOpportunityById.Amount}&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;Please provide the following details for the requested &lt;strong&gt;Upsell&lt;/strong&gt;:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;strong&gt;Upsell Date:&lt;/strong&gt; The date when the upsell was agreed upon.&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Total Additional Contract Value:&lt;/strong&gt; The total additional amount being added to the contract for the remaining months.&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;</fieldText>
             <fieldType>DisplayText</fieldType>
         </fields>
         <fields>
@@ -981,7 +1018,8 @@ TODAY() &gt; {!getBaseOpportunityById.Contract_End_Date__c},
             <dataType>Date</dataType>
             <fieldText>Upsell Date</fieldText>
             <fieldType>InputField</fieldType>
-            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <inputsOnNextNavToAssocScrn
+      >UseStoredValues</inputsOnNextNavToAssocScrn>
             <isRequired>true</isRequired>
         </fields>
         <fields>
@@ -989,13 +1027,15 @@ TODAY() &gt; {!getBaseOpportunityById.Contract_End_Date__c},
             <dataType>Currency</dataType>
             <fieldText>Total Additional Contract Value</fieldText>
             <fieldType>InputField</fieldType>
-            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <inputsOnNextNavToAssocScrn
+      >UseStoredValues</inputsOnNextNavToAssocScrn>
             <isRequired>true</isRequired>
             <scale>0</scale>
         </fields>
         <fields>
             <name>upsellAmendmentPreviewDisplayText</name>
-            <fieldText>&lt;p&gt;&lt;strong&gt;Upsell Amendment Preview:&lt;/strong&gt;&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;strong&gt;Upsell Date:&lt;/strong&gt; {!upsellDate}&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Upsell Effective Date:&lt;/strong&gt; {!upsellEffectiveDate}&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Upsell Term (months):&lt;/strong&gt; {!upsellTermLength}&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Upsell MRR:&lt;/strong&gt; {!upsellMRR}&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Upsell ARR:&lt;/strong&gt; {!upsellARR}&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Total Additional Contract Value:&lt;/strong&gt; {!upsellTotalAdditionalContractValue}&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;If this is correct, please proceed.&lt;/p&gt;</fieldText>
+            <fieldText
+      >&lt;p&gt;&lt;strong&gt;Upsell Amendment Preview:&lt;/strong&gt;&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;strong&gt;Upsell Date:&lt;/strong&gt; {!upsellDate}&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Upsell Effective Date:&lt;/strong&gt; {!upsellEffectiveDate}&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Upsell Term (months):&lt;/strong&gt; {!upsellTermLength}&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Upsell MRR:&lt;/strong&gt; {!upsellMRR}&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Upsell ARR:&lt;/strong&gt; {!upsellARR}&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Total Additional Contract Value:&lt;/strong&gt; {!upsellTotalAdditionalContractValue}&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;If this is correct, please proceed.&lt;/p&gt;</fieldText>
             <fieldType>DisplayText</fieldType>
         </fields>
         <showFooter>true</showFooter>

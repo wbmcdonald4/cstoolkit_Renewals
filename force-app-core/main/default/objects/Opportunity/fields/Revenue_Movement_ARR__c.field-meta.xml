@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Revenue_Movement_ARR__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(
+  RecordType.Name = &apos;Sales&apos; &amp;&amp; ISPICKVAL(StageName, &apos;Closed Won&apos;),
+   ARR__c ,
+  IF(
+    RecordType.Name = &apos;Upsell&apos; &amp;&amp; ISPICKVAL(StageName, &apos;Closed Won&apos;),
+    ARR__c ,
+    IF(
+      RecordType.Name = &apos;Renewal&apos; &amp;&amp; ISPICKVAL(StageName, &apos;Closed Lost&apos;),
+      -ARR_Up_For_Renewal__c,
+      IF(
+        RecordType.Name = &apos;Renewal&apos; &amp;&amp; ISPICKVAL(StageName, &apos;Closed Won&apos;),
+        IF(
+          ARR__c - ARR_Up_For_Renewal__c &gt; 0,
+          ARR__c - ARR_Up_For_Renewal__c,
+          IF(
+            ARR__c - ARR_Up_For_Renewal__c &lt; 0,
+            ARR__c - ARR_Up_For_Renewal__c,
+            0
+          )
+        ),
+        NULL
+      )
+    )
+  )
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText
+  >Displays the difference in ARR between the current opportunity and the previous one.</inlineHelpText>
+    <label>Revenue Movement ARR</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackTrending>false</trackTrending>
+    <type>Currency</type>
+</CustomField>

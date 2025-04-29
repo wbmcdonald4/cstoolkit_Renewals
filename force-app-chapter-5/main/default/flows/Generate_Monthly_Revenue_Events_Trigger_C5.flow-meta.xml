@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" ?>
 <Flow xmlns="http://soap.sforce.com/2006/04/metadata">
     <actionCalls>
         <name>Generate_Monthly_Revenue_Events</name>
@@ -37,11 +37,13 @@
                 <leftValueReference>$Record.StageName</leftValueReference>
                 <operator>NotEqualTo</operator>
                 <rightValue>
-                    <elementReference>$Record__Prior.StageName</elementReference>
+                    <elementReference
+          >$Record__Prior.StageName</elementReference>
                 </rightValue>
             </conditions>
             <connector>
-                <targetReference>Generate_Monthly_Revenue_Events</targetReference>
+                <targetReference
+        >Generate_Monthly_Revenue_Events</targetReference>
             </connector>
             <label>Closed Won</label>
         </rules>
@@ -59,11 +61,13 @@
                 <leftValueReference>$Record.StageName</leftValueReference>
                 <operator>NotEqualTo</operator>
                 <rightValue>
-                    <elementReference>$Record__Prior.StageName</elementReference>
+                    <elementReference
+          >$Record__Prior.StageName</elementReference>
                 </rightValue>
             </conditions>
             <connector>
-                <targetReference>Generate_Monthly_Revenue_Events</targetReference>
+                <targetReference
+        >Generate_Monthly_Revenue_Events</targetReference>
             </connector>
             <label>Closed Lost</label>
         </rules>
@@ -85,17 +89,21 @@
                 </rightValue>
             </conditions>
             <conditions>
-                <leftValueReference>$Record.Contract_Start_Date__c</leftValueReference>
+                <leftValueReference
+        >$Record.Contract_Start_Date__c</leftValueReference>
                 <operator>NotEqualTo</operator>
                 <rightValue>
-                    <elementReference>$Record__Prior.Contract_Start_Date__c</elementReference>
+                    <elementReference
+          >$Record__Prior.Contract_Start_Date__c</elementReference>
                 </rightValue>
             </conditions>
             <conditions>
-                <leftValueReference>$Record.Contract_Term__c</leftValueReference>
+                <leftValueReference
+        >$Record.Contract_Term__c</leftValueReference>
                 <operator>NotEqualTo</operator>
                 <rightValue>
-                    <elementReference>$Record__Prior.Contract_Term__c</elementReference>
+                    <elementReference
+          >$Record__Prior.Contract_Term__c</elementReference>
                 </rightValue>
             </conditions>
             <conditions>
@@ -106,7 +114,8 @@
                 </rightValue>
             </conditions>
             <connector>
-                <targetReference>Generate_Monthly_Revenue_Events</targetReference>
+                <targetReference
+        >Generate_Monthly_Revenue_Events</targetReference>
             </connector>
             <label>Already Closed, Key Fields Changed</label>
         </rules>
@@ -128,13 +137,15 @@
                 </rightValue>
             </conditions>
             <connector>
-                <targetReference>Generate_Monthly_Revenue_Events</targetReference>
+                <targetReference
+        >Generate_Monthly_Revenue_Events</targetReference>
             </connector>
             <label>Reopened Opportunity</label>
         </rules>
     </decisions>
     <environments>Default</environments>
-    <interviewLabel>Generate Monthly Revenue Events Trigger (C5) {!$Flow.CurrentDateTime}</interviewLabel>
+    <interviewLabel
+  >Generate Monthly Revenue Events Trigger (C5) {!$Flow.CurrentDateTime}</interviewLabel>
     <label>Generate Monthly Revenue Events Trigger (C5)</label>
     <processMetadataValues>
         <name>BuilderType</name>

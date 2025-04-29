@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" ?>
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>Revenue_Movement_Type__c</fullName>
     <externalId>false</externalId>
@@ -24,7 +24,8 @@
   )
 )</formula>
     <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-    <inlineHelpText>Categorizes the renewal as an Upsell, Downsell, Flat Renewal, or Churn based on the comparison between the current and previous ARR.</inlineHelpText>
+    <inlineHelpText
+  >Categorizes the renewal as an Upsell, Downsell, Flat Renewal, or Churn based on the comparison between the current and previous ARR.</inlineHelpText>
     <label>Revenue Movement Type</label>
     <required>false</required>
     <trackTrending>false</trackTrending>
