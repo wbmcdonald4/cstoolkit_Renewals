@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Renewal_Of__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <externalId>false</externalId>
+    <inlineHelpText
+  >Links this opportunity to the previous opportunity it is renewing.</inlineHelpText>
+    <label>Renewal Of</label>
+    <referenceTo>Opportunity</referenceTo>
+    <relationshipLabel>Renewed By</relationshipLabel>
+    <relationshipName>Renewed_By</relationshipName>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

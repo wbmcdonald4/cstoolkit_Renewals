@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Forecasted_Renewals_NEXT_90_DAYS</fullName>
+    <columns>OPPORTUNITY.NAME</columns>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>OPPORTUNITY.STAGE_NAME</columns>
+    <columns>Days_To_Close__c</columns>
+    <columns>OPPORTUNITY.CLOSE_DATE</columns>
+    <columns>Contract_Term__c</columns>
+    <columns>OPPORTUNITY.AMOUNT</columns>
+    <columns>ARR__c</columns>
+    <columns>CORE.USERS.FULL_NAME</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>OPPORTUNITY.RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>Opportunity.Renewal</value>
+    </filters>
+    <filters>
+        <field>OPPORTUNITY.CLOSED</field>
+        <operation>equals</operation>
+        <value>0</value>
+    </filters>
+    <filters>
+        <field>OPPORTUNITY.CLOSE_DATE</field>
+        <operation>lessOrEqual</operation>
+        <value>NEXT_90_DAYS</value>
+    </filters>
+    <label>Forecasted Renewals (NEXT 90 DAYS)</label>
+</ListView>
